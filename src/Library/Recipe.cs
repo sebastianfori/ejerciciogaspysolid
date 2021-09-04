@@ -40,7 +40,7 @@ namespace Full_GRASP_And_SOLID.Library
             foreach (Step step in steps)
             {
                 costoInsumos += step.Input.UnitCost*step.Quantity;
-                costoEquipamiento+= step.Time*step.Equipment.HourlyCost;
+                costoEquipamiento+= (step.Time/60)*step.Equipment.HourlyCost;
 
             }
             return costoInsumos+costoEquipamiento;
@@ -54,6 +54,7 @@ namespace Full_GRASP_And_SOLID.Library
                 Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
+            Console.WriteLine($"Costo total: {this.GetProductionCost()}");
         }
     }
 }
