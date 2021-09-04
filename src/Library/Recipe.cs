@@ -11,6 +11,7 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Recipe
     {
+        
         private ArrayList steps = new ArrayList();
 
         public Product FinalProduct { get; set; }
@@ -23,6 +24,19 @@ namespace Full_GRASP_And_SOLID.Library
         public void RemoveStep(Step step)
         {
             this.steps.Remove(step);
+        }
+        public double GetProductionCost()
+        {
+            double costoInsumos = 0;
+            double costoEquipamiento = 0;
+
+            foreach (Step step in steps)
+            {
+                costoInsumos += step.Input.UnitCost*step.Quantity;
+                costoEquipamiento+= step.Time*step.Equipment.HourlyCost;
+
+            }
+            return costoInsumos+costoEquipamiento;
         }
 
         public void PrintRecipe()
