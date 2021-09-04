@@ -9,6 +9,13 @@ using System.Collections;
 
 namespace Full_GRASP_And_SOLID.Library
 {
+    
+    /*
+    Basandonos en el patron Expert, agregamos el metodo GetProductionCost en la clase Recipe ya que es la que
+    tiene toda la informacion de la receta.
+    Ademas cumple con el principio SRP porque el costo es parte de la receta lo cual ya era parte de la 
+    responsabilidad de la clase Recipe.
+    */
     public class Recipe
     {
         
